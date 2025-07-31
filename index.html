@@ -710,7 +710,7 @@
                               if (!email) return alert("Please enter your email first.");
                           
                               try {
-                                const res = await fetch('http://localhost:3000/send-otp', {
+                                const res = await fetch('https://sme-finance-backend-1.onrender.com/send-otp', {
                                   method: 'POST',
                                   headers: { 'Content-Type': 'application/json' },
                                   body: JSON.stringify({ email })
@@ -737,7 +737,7 @@
                               if (!otp) return alert("Please enter OTP.");
                           
                               try {
-                                const res = await fetch('http://localhost:3000/check-otp', {
+                                const res = await fetch('https://sme-finance-backend-1.onrender.com/check-otp', {
                                   method: 'POST',
                                   headers: { 'Content-Type': 'application/json' },
                                   body: JSON.stringify({ email, otp })
@@ -770,7 +770,7 @@
                               const data = Object.fromEntries(formData.entries());
                           
                               try {
-                                const res = await fetch('http://localhost:3000/submit-form', {
+                                const res = await fetch('https://sme-finance-backend-1.onrender.com/submit-form', {
                                   method: 'POST',
                                   headers: { 'Content-Type': 'application/json' },
                                   body: JSON.stringify(data)
