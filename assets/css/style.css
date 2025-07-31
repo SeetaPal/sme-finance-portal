@@ -1,0 +1,687 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* topbar */
+#topbar {
+  background: #3fbbc0;
+  color: #fff;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  /* transition: all 0.5s; */
+}
+
+
+/* Header base */
+#header {
+  background: #fff;
+  padding: 10px 0;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+/* Header inner flex layout */
+#header .header-content {
+  display: flex;
+  margin-top: 51px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+/* Logo image */
+.logo img {
+  height: 65px;
+  max-height: 80px;
+  display: block;
+}
+
+/* Finance Text */
+.finance-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.Looking {
+  font-size: 14px;
+  color: #007bff;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Navigation menu */
+#navbar {
+  flex-shrink: 1;
+}
+
+#navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#navbar ul li {
+  margin: 0 10px;
+  position: relative;
+}
+
+#navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+#navbar ul li a:hover,
+#navbar ul li a.active {
+  color: #007bff;
+}
+
+/* Dropdown styles */
+#navbar .dropdown ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+#navbar .dropdown:hover > ul {
+  display: block;
+}
+
+#navbar .dropdown ul li {
+  margin: 0;
+}
+
+#navbar .dropdown ul li a {
+  padding: 10px 20px;
+  color: #333;
+  display: block;
+}
+
+#navbar .dropdown ul li a:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+/* Mobile nav toggle */
+.mobile-nav-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #navbar ul {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #fff;
+  }
+
+  #navbar ul.show {
+    display: flex;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  #navbar ul li {
+    width: 100%;
+    text-align: left;
+  }
+
+  #navbar .dropdown ul {
+    position: static;
+    box-shadow: none;
+  }
+
+  #navbar .dropdown:hover > ul {
+    display: none;
+  }
+
+  #navbar .dropdown > a::after {
+    content: " ▾";
+  }
+
+  #navbar .dropdown > a.active + ul {
+    display: block;
+  }
+}
+
+
+
+/*............. About Section .......................*/
+#about {
+  padding: 80px 0;
+  background: #f9f9f9;
+}
+
+#about .section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  color: #222;
+  text-align: center;
+}
+
+#about .section-title p {
+  color: #444;
+  font-size: 16px;
+  max-width: 1253px;
+  margin: 0 auto 40px auto;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+/* Image Column */
+#about img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Text Column */
+#about .content p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Optional: Animate fade-in smoother */
+[data-aos] {
+  transition: all 0.8s ease;
+}
+
+@media (max-width: 991px) {
+  #about .section-title h2 {
+    font-size: 28px;
+  }
+
+  #about .section-title p {
+    font-size: 15px;
+    padding: 0 15px;
+  }
+}
+
+/* carousel section */
+.carousel-item {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  right: 10%;
+  color: #fff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.carousel-caption p {
+  font-size: 1.25rem;
+}
+
+/* ....................... Services Section ........................*/
+
+.unique-card ul {
+  max-width: 100%;
+}
+
+.unique-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(58, 141, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.unique-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2), 0 0 30px rgba(58, 141, 255, 0.25);
+}
+
+.unique-card .icon-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.unique-card .icon-box i {
+  font-size: 40px;
+  color: #3a8dff;
+  background: linear-gradient(135deg, #3a8dff, #5efce8);
+  padding: 20px;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 5px 15px rgba(90, 173, 255, 0.4);
+}
+
+.unique-card .icon-box h4 {
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #000;
+}
+
+.unique-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.unique-card ul li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+}
+
+.unique-card ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #3a8dff;
+  font-weight: bold;
+}
+
+
+/*............... SUPPORT SERVICES Section ............................*/
+
+#cta {
+  background: linear-gradient(135deg, #f5f8fd, #e0f2ff);
+  padding: 60px 0;
+  border-radius: 12px;
+}
+
+#cta .section-title h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+#cta ol {
+  padding-left: 20px;
+  margin-bottom: 0;
+  list-style-position: inside;
+  counter-reset: custom-counter;
+}
+
+#cta ol li {
+  position: relative;
+  padding-left: 10px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#cta ol li:hover {
+  background: #d0eaff;
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  #cta .row {
+    flex-direction: column;
+  }
+
+  #cta ol {
+    padding-left: 0;
+  }
+
+  #cta ol li {
+    font-size: 15px;
+  }
+}
+
+
+/*................. MANAGEMENT Section Styling ..........................*/
+
+.section-bg {
+  background: #f7fafd;
+  padding: 60px 0;
+}
+
+#management .section-title h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.member {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.member-img {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+}
+
+.member-img img {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 4px solid #3a8dff;
+  transition: transform 0.3s ease;
+}
+
+.member:hover .member-img img {
+  transform: scale(1.05);
+}
+
+.social {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.social span {
+  font-size: 15px;
+  color: #777;
+}
+
+
+/* .............. PARTNERS...............*/
+
+.section-title {
+  text-align: center;
+  margin-top: 31px;
+
+}
+
+.gallery-slider {
+  overflow: hidden;
+  padding: 46px 0;
+}
+
+.gallery-slider .swiper-slide img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+
+.gallery-slider .swiper-slide img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-slider .swiper-slide img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Push swiper pagination dots below the image */
+.gallery-slider .swiper-pagination {
+  margin-top: 77px;
+  /* Adjust as needed */
+  position: relative;
+  /* Allows spacing from images */
+  text-align: center;
+}
+
+
+/* .................initiated ......................*/
+.initiated-card {
+  max-width: 100%;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.initiated-card:hover {
+  transform: translateY(-5px);
+}
+
+.initiated-img {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.initiated-content p {
+  text-align: justify;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.initiated-content h3 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+
+
+
+/* ................Footer section ..................*/
+
+#footer {
+  background: linear-gradient(135deg, #0f172a, #01060e);
+
+  color: #f1f5f9;
+  padding: 60px 0 30px;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#footer .footer-top {
+  position: relative;
+  z-index: 1;
+  background: #f6f6f6;
+}
+
+#footer .footer-info img {
+  max-width: 150px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+#footer .footer-info img:hover {
+  transform: scale(1.05);
+}
+
+#footer .footer-info p {
+  font-size: 14px;
+  color: hsl(0, 0%, 0%);
+  line-height: 1.8;
+}
+
+#footer .footer-links h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #f8fafc;
+}
+
+#footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+#footer .footer-links ul li {
+  padding: 8px 0;
+}
+
+#footer .footer-links ul li a {
+  color: #94a3b8;
+  font-size: 15px;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+#footer .footer-links ul li i {
+  color: #38bdf8;
+  margin-right: 8px;
+}
+
+#footer .footer-links ul li a:hover {
+  color: #38bdf8;
+  transform: translateX(5px);
+}
+
+#footer .footer-newsletter h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+#footer .social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #94a3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 40px;
+}
+
+#footer .copyright a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+#footer .copyright a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/*................. Our Social Networks Section ........................ */
+#footer .footer-newsletter h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin-bottom: 15px;
+}
+
+/* Social Links Styles */
+#footer .social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#footer .social-links a {
+  background: #e0fce7;
+  border: 1px solid #10b981;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+#footer .social-links a:hover {
+  background: #10b981;
+  color: #ffffff;
+  transform: scale(1.1);
+}

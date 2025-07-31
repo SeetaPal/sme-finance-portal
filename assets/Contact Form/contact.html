@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form with OTP</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    form {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    input, textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .rest-fields {
+      display: none;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+
+  .modal-content input {
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 25px;
+}
+
+    .close {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Contact Us (Email OTP Verification)</h2>
+
+  <form id="contactForm">
+    <input type="email" name="email" placeholder="Your Email" required id="emailInput" />
+    <button type="button" id="sendOtpBtn">Send OTP</button>
+
+    <div class="rest-fields" id="restFields">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="mobile" placeholder="Mobile Number" pattern="^\d{10}$" maxlength="10" required />
+      <input type="text" name="subject" placeholder="Subject" required />
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </div>
+  </form>
+
+  <div id="otpModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('otpModal').style.display='none'">&times;</span>
+      <h3>Enter OTP</h3>
+      <input type="text" id="otpInput" placeholder="Enter OTP" />
+      <button id="verifyOtpBtn">Verify OTP</button>
+    </div>
+  </div>
+
+  <script>
+    const sendOtpBtn = document.getElementById('sendOtpBtn');
+    const emailInput = document.getElementById('emailInput');
+    const otpModal = document.getElementById('otpModal');
+    const otpInput = document.getElementById('otpInput');
+    const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+    const restFields = document.getElementById('restFields');
+    const form = document.getElementById('contactForm');
+
+    let otpVerified = false;
+
+    // STEP 1: Send OTP
+    sendOtpBtn.addEventListener('click', async () => {
+      const email = emailInput.value.trim();
+      if (!email) return alert("⚠️ Please enter your email first.");
+
+      sendOtpBtn.disabled = true;
+
+      try {
+        const res = await axios.post('http://localhost:3000/send-otp', { email });
+
+        if (res.data.success) {
+          alert('✅ OTP sent to your email.');
+          otpModal.style.display = 'block';
+          otpInput.focus();
+        } else {
+          alert('❌ ' + res.data.message);
+          sendOtpBtn.disabled = false;
+        }
+      } catch (err) {
+        console.error(err);
+        alert('❌ Failed to send OTP.');
+        sendOtpBtn.disabled = false;
+      }
+    });
+
+    // STEP 2: Verify OTP
+    verifyOtpBtn.addEventListener('click', async () => {
+      const otp = otpInput.value.trim();
+      const email = emailInput.value.trim();
+      if (!otp) return alert("⚠️ Please enter the OTP.");
+
+      try {
+        const res = await axios.post('http://localhost:3000/check-otp', { email, otp });
+
+        if (res.data.success) {
+          alert('✅ OTP Verified!');
+          otpVerified = true;
+          otpModal.style.display = 'none';
+          restFields.style.display = 'block';
+        } else {
+          alert('❌ ' + res.data.message);
+        }
+      } catch (err) {
+        console.error(err);
+        alert('❌ OTP verification failed.');
+      }
+    });
+
+    // STEP 3: Submit Final Form
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!otpVerified) {
+        alert("⚠️ Please verify OTP before submitting the form.");
+        return;
+      }
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await axios.post('http://localhost:3000/submit-form', data);
+
+        if (res.data.success) {
+          alert("✅ Message sent successfully!");
+          form.reset();
+          restFields.style.display = 'none';
+          otpVerified = false;
+          sendOtpBtn.disabled = false;
+        } else {
+          alert("❌ " + res.data.message);
+        }
+      } catch (err) {
+        console.error(err);
+        alert("❌ Error sending final message.");
+      }
+    });
+  </script>
+
+</body>
+</html>
