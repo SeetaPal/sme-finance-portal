@@ -436,7 +436,7 @@ body {
   border-radius: 50%;
   width: 180px;
   height: 180px;
-  object-fit: cover;
+  /* object-fit: cover; */
   border: 4px solid #3a8dff;
   transition: transform 0.3s ease;
 }
@@ -461,6 +461,7 @@ body {
   font-size: 15px;
   color: #777;
 }
+
 
 
 /* .............. PARTNERS...............*/
@@ -565,15 +566,24 @@ body {
   background: #f6f6f6;
 }
 
-#footer .footer-info img {
-  max-width: 150px;
-  margin-bottom: 15px;
+
+/* Footer Logo Specific Styling */
+.footer-logo-img {
+  display: block;
+  margin: 20px auto;              
+  padding: 10px;               
+  max-width: 250px;           
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
   transition: transform 0.3s ease;
+  filter: none !important;
 }
 
-#footer .footer-info img:hover {
+.footer-logo-img:hover {
   transform: scale(1.05);
 }
+
 
 #footer .footer-info p {
   font-size: 14px;

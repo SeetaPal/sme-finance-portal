@@ -341,7 +341,7 @@
                     <div class="col-lg-4 col-md-6 align-items-stretch">
                         <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
-                                <img src="assets/img/Director/Saakshi_Kulkarni.png" class="img-fluid" alt="">
+                                <img src="assets/img/Director/Saakshi_Kulkarni.png" alt="">
                                 <div class="social">
                                     <h4 style="font-size:18px;">Ms Saakshi Kulkarni</h4>
                                     <span style="font-size:15px;">Director</span>
@@ -351,12 +351,13 @@
                         </div>
                     </div>
 
+                    
 
 
                     <div class="col-lg-4 col-md-6 align-items-stretch">
                         <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
-                                <img src="assets/img/Director/madhuri.png" class="img-fluid" alt="">
+                                <img src="assets/img/Director/madhuri.png"  alt="">
                                 <div class="social">
                                     <h4 style="font-size:18px;">Ms Madhuri Khanwalkar</h4>
                                     <span style="font-size:15px;">Deputy Secretary General</span>
@@ -553,110 +554,6 @@
 
                     </div>
 
-                    
-
-
-                    
-
-
-                        <!-- begt -->
-                        <!-- <div class="col-lg-6">
-                            <form method="post" class="php-email-form1">
-                              <div class="row">
-                                <div class="col form-group">
-                                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                                </div>
-                                <div class="col form-group">
-                                  <input type="text" name="mobile" class="form-control" placeholder="Mobile Number"
-                                    pattern="^\d{10}$" maxlength="10" required>
-                                </div>
-                              </div>
-                              <div class="form-group mt-3">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                                <br>
-                                <button type="button" id="sendOtpBtn" class="btn btn-warning">Send OTP</button>
-                              </div>
-                          
-                              <div class="form-group mt-3" id="otpField" style="display: none;">
-                                <input type="text" class="form-control" name="otp" placeholder="Enter OTP" required>
-                              </div>
-                          
-                              <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                              </div>
-                              <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="3" placeholder="Message" required></textarea>
-                              </div>
-                              <br>
-                              <div class="text-center">
-                                <button type="submit" name="submit" value="submit" class="btn btn-primary">Verify OTP & Send Message</button>
-                              </div>
-                            </form>
-                          </div>
-                          
-                          <script>
-                            const form = document.querySelector('.php-email-form1');
-                            const sendOtpBtn = document.getElementById('sendOtpBtn');
-                            const otpField = document.getElementById('otpField');
-                            const emailInput = document.getElementById('email');
-                          
-                            // Step 1: Send OTP
-                            sendOtpBtn.addEventListener('click', async function () {
-                              const email = emailInput.value;
-                              if (!email) return alert("Please enter your email first.");
-                          
-                              try {
-                                const res = await fetch('http://localhost:3000/send-otp', {
-                                  method: 'POST',
-                                  headers: { 'Content-Type': 'application/json' },
-                                  body: JSON.stringify({ email })
-                                });
-                          
-                                const result = await res.json();
-                                if (result.success) {
-                                  alert('✅ OTP sent to your email.');
-                                  otpField.style.display = 'block';
-                                } else {
-                                  alert('❌ ' + result.message);
-                                }
-                              } catch (err) {
-                                console.error(err);
-                                alert('❌ Error sending OTP.');
-                              }
-                            });
-                          
-                            // Step 2: Submit form with OTP
-                            form.addEventListener('submit', async function (e) {
-                              e.preventDefault();
-                          
-                              const formData = new FormData(form);
-                              const data = Object.fromEntries(formData.entries());
-                          
-                              try {
-                                const response = await fetch('http://localhost:3000/verify-otp', {
-                                  method: 'POST',
-                                  headers: {
-                                    'Content-Type': 'application/json'
-                                  },
-                                  body: JSON.stringify(data)
-                                });
-                          
-                                const result = await response.json();
-                                if (result.success) {
-                                  alert('✅ Form submitted and email sent successfully!');
-                                  form.reset();
-                                  otpField.style.display = 'none';
-                                } else {
-                                  alert('❌ ' + result.message);
-                                }
-                              } catch (err) {
-                                console.error(err);
-                                alert('❌ Error submitting form.');
-                              }
-                            });
-                          </script> -->
-
-                          <!-- gfgi -->
                           <div class="col-lg-6">
                             <form method="post" class="php-email-form1">
                               <div class="row">
@@ -808,16 +705,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-info">
-                            <a href="" class="logo me-auto"><img src="assets/img/SFFC.png" alt=""></a>
-                            <p>
-                                C/O- SME Chamber of India<br>
-                                Samruddhi Venture Park, Office No. 1, 3rd Floor, <br>
-                                MIDC Central Road, Next to Akruti
-                                Centre, <br>Andheri (E) Mumbai - 400 093.<br>
-                                <strong>Phone:</strong> + 91 - 22 - 69511111 | 2832 7219 / 20<br>
-                                <strong>Email:</strong> smechamberofindia[at]gmail[dot]com | sfipc[at]outlook[dot]com
-                            </p>
-
+                            <a href="" class="footer-logo"><img src="assets/img/SIPC.jpg" alt="" class="footer-logo-img"></a>
                         </div>
                     </div>
 
