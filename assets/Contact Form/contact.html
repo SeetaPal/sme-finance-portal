@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Form with OTP</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <style>
@@ -14,11 +14,14 @@
       background: #f9f9f9;
       border-radius: 8px;
     }
-    input, textarea {
+
+    input,
+    textarea {
       width: 100%;
       margin-bottom: 10px;
       padding: 10px;
     }
+
     button {
       padding: 10px 20px;
       background: #007bff;
@@ -26,17 +29,22 @@
       border: none;
       cursor: pointer;
     }
+
     .rest-fields {
       display: none;
     }
+
     .modal {
       display: none;
       position: fixed;
       z-index: 999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
     }
+
     .modal-content {
       background: #fff;
       margin: 15% auto;
@@ -45,11 +53,11 @@
       border-radius: 8px;
     }
 
-  .modal-content input {
-    width: 100%;
-    padding: 4px;
-    margin-bottom: 25px;
-}
+    .modal-content input {
+      width: 100%;
+      padding: 4px;
+      margin-bottom: 25px;
+    }
 
     .close {
       float: right;
@@ -58,6 +66,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <h2 style="text-align:center;">Contact Us (Email OTP Verification)</h2>
@@ -152,11 +161,18 @@
         return;
       }
 
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+      const data = {
+        email: form.email.value,
+        name: form.name.value,
+        mobile: form.mobile.value,
+        subject: form.subject.value,
+        message: form.message.value
+      };
 
       try {
-        const res = await axios.post('https://sme-finance-backend-1.onrender.com/submit-form', data);
+        const res = await axios.post('https://sme-finance-backend-1.onrender.com/submit-form', data, {
+          headers: { 'Content-Type': 'application/json' }
+        });
 
         if (res.data.success) {
           alert("✅ Message sent successfully!");
@@ -172,7 +188,9 @@
         alert("❌ Error sending final message.");
       }
     });
+
   </script>
 
 </body>
+
 </html>
