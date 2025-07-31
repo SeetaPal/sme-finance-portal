@@ -38,6 +38,49 @@ const messageSchema = new mongoose.Schema({
 const Message = mongoose.model('Message', messageSchema);
 
 // ✉️ Send OTP
+// app.post('/send-otp', async (req, res) => {
+//   const { email } = req.body;
+//   if (!email) return res.status(400).json({ success: false, message: "Email is required" });
+
+//   const otp = Math.floor(100000 + Math.random() * 900000).toString();
+//   const expiresAt = Date.now() + 5 * 60 * 1000;
+
+//   otpStore[email] = { otp, expiresAt };
+
+//   try {
+//     const transporter = nodemailer.createTransport({
+//       service: 'gmail',
+//       auth: {
+//         user: process.env.EMAIL_USER,
+//         pass: process.env.EMAIL_PASS
+//       }
+//     });
+    
+
+   
+
+//     const mailOptions = {
+//       from: process.env.EMAIL_USER,             // sender (your email, from env)
+//       to: process.env.EMAIL_RECEIVER,           // admin/your receiver email from env
+//       subject: `New Contact Form Message: ${subject}`,
+//       html: `
+//         <h3>New message from Contact Form</h3>
+//         <p><strong>Name:</strong> ${name}</p>
+//         <p><strong>Mobile:</strong> ${mobile}</p>
+//         <p><strong>Email:</strong> ${email}</p>
+//         <p><strong>Message:</strong> ${message}</p>
+//       `
+//     };
+    
+
+//     await transporter.sendMail(mailOptions);
+//     res.status(200).json({ success: true, message: 'OTP sent to email.' });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ success: false, message: 'Failed to send OTP.' });
+//   }
+// });
+
 app.post('/send-otp', async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).json({ success: false, message: "Email is required" });
@@ -55,29 +98,13 @@ app.post('/send-otp', async (req, res) => {
         pass: process.env.EMAIL_PASS
       }
     });
-    
-
-    // const mailOptions = {
-    //   from: 'seetapal875@gmail.com',
-    //   to: email,
-    //   subject: 'Your OTP for Verification',
-    //   text: `Your OTP is: ${otp}. It will expire in 5 minutes.`
-    // };
-
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,             // sender (your email, from env)
-      to: process.env.EMAIL_RECEIVER,           // admin/your receiver email from env
-      subject: `New Contact Form Message: ${subject}`,
-      html: `
-        <h3>New message from Contact Form</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Mobile:</strong> ${mobile}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong> ${message}</p>
-      `
+      from: process.env.EMAIL_USER,
+      to: email, // ✅ send OTP to the user who is verifying
+      subject: 'Your OTP for Verification',
+      text: `Your OTP is: ${otp}. It will expire in 5 minutes.`
     };
-    
 
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: 'OTP sent to email.' });
@@ -86,6 +113,7 @@ app.post('/send-otp', async (req, res) => {
     res.status(500).json({ success: false, message: 'Failed to send OTP.' });
   }
 });
+
 
 
 app.post('/check-otp', (req, res) => {
