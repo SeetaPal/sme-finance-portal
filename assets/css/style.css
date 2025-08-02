@@ -1,3 +1,6 @@
+/* 
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,78 +11,86 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* topbar */
+
 #topbar {
   background: #3fbbc0;
   color: #fff;
   height: 40px;
   font-size: 16px;
   font-weight: 600;
-  /* transition: all 0.5s; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+#topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
-/* Header base */
+
 #header {
   background: #fff;
   padding: 10px 0;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
   z-index: 999;
   position: fixed;
-  top: 0;
+  top: 40px; 
   width: 100%;
   transition: all 0.3s;
 }
 
-/* Header inner flex layout */
-#header .header-content {
+
+.header-content {
   display: flex;
-  margin-top: 51px;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
-  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
 }
 
-/* Logo image */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .logo img {
   height: 65px;
-  max-height: 80px;
   display: block;
 }
 
-/* Finance Text */
 .finance-link {
   text-decoration: none;
-  display: flex;
-  align-items: center;
 }
 
 .Looking {
-  font-size: 14px;
-  color: #007bff;
+  font-size: 15px;
   font-weight: bold;
+  color: #007bff;
   margin: 0;
   white-space: nowrap;
 }
 
-/* Navigation menu */
+
 #navbar {
   flex-shrink: 1;
 }
 
 #navbar ul {
   list-style: none;
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
 #navbar ul li {
   margin: 0 10px;
-  position: relative;
 }
 
 #navbar ul li a {
@@ -95,39 +106,43 @@ body {
   color: #007bff;
 }
 
-/* Dropdown styles */
+#navbar .dropdown {
+  position: relative;
+}
+
 #navbar .dropdown ul {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   background: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   padding: 10px 0;
-  z-index: 999;
+  z-index: 1000;
+}
+
+#navbar .dropdown ul li a {
+  padding: 10px 20px;
+  display: block;
+  color: #333;
+}
+
+#navbar .dropdown ul li a:hover {
+  background-color: #f1f1f1;
+  color: #007bff;
 }
 
 #navbar .dropdown:hover > ul {
   display: block;
 }
 
-#navbar .dropdown ul li {
-  margin: 0;
-}
 
-#navbar .dropdown ul li a {
-  padding: 10px 20px;
-  color: #333;
+#navbar .dropdown ul.show {
   display: block;
 }
 
-#navbar .dropdown ul li a:hover {
-  background-color: #f8f9fa;
-  color: #007bff;
-}
 
-/* Mobile nav toggle */
 .mobile-nav-toggle {
   display: none;
   font-size: 24px;
@@ -135,30 +150,57 @@ body {
   color: #333;
 }
 
-/* Responsive styles */
-@media (max-width: 991px) {
+
+.carousel-item {
+  height: 100vh;
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+  #topbar {
+    height: 58px;
+  }
+
+  #topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 5px 83px; 
+  }
+
   .header-content {
     flex-direction: column;
     align-items: flex-start;
   }
 
+  #header {
+    width: 82%; 
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .Looking {
+    font-size: 12px;
+  }
+
   #navbar ul {
-    flex-direction: column;
     display: none;
+    flex-direction: column;
     width: 100%;
-    padding: 10px 0;
     background-color: #fff;
+    padding: 10px 0;
   }
 
   #navbar ul.show {
     display: flex;
-  }
-
-  .mobile-nav-toggle {
-    display: block;
-    position: absolute;
-    top: 15px;
-    right: 20px;
   }
 
   #navbar ul li {
@@ -166,27 +208,261 @@ body {
     text-align: left;
   }
 
-  #navbar .dropdown ul {
-    position: static;
-    box-shadow: none;
-  }
-
-  #navbar .dropdown:hover > ul {
-    display: none;
-  }
-
-  #navbar .dropdown > a::after {
-    content: " ▾";
-  }
-
-  #navbar .dropdown > a.active + ul {
+  .mobile-nav-toggle {
     display: block;
+    position: absolute;
+    right: 15px;
+    top: 60px;
+    z-index: 1001;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  .carousel-item {
+    height: 60vh;
   }
 }
 
 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .logo img {
+    height: 60px;
+  }
+
+  #header {
+    width: 82%;
+  }
+
+  .Looking {
+    font-size: 14px;
+  }
+
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .logo img {
+    height: 65px;
+  }
+
+  #header {
+    width: 82%; 
+  }
+
+  .Looking {
+    font-size: 14px;
+  }
+
+  .mobile-nav-toggle {
+    display: none;
+  }
+} */
+
+
+/* proper testing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+#topbar {
+  background: #3fbbc0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 40px;
+  transition: top 0.3s;
+}
+
+#topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#header {
+  background: #fff;
+  padding: 10px 0;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  position: fixed;
+  top: 40px;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 0;
+  padding: 0 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 55px;
+  display: block;
+}
+
+.finance-link {
+  text-decoration: none;
+}
+
+.Looking {
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+#navbar {
+  flex-shrink: 1;
+}
+
+#navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar ul li {
+  margin: 0 10px;
+}
+
+#navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+#navbar ul li a:hover,
+#navbar ul li a.active {
+  color: #007bff;
+}
+
+#navbar .dropdown {
+  position: relative;
+}
+
+#navbar .dropdown ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+#navbar .dropdown:hover > ul {
+  display: block;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.carousel-item {
+  height: 100vh;
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767px) {
+  #topbar {
+    height: auto;
+  }
+
+  #topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 5px 15px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 26px;
+  }
+
+  #header {
+    width: 100%;
+    top: 40px;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  .Looking {
+    font-size: 12px;
+  }
+
+  #navbar ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+  }
+
+  #navbar ul.show { 
+    display: flex;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    right: 20px !important;
+    top: 25px;
+    z-index: 1001;
+    background: #fff;
+    padding: 14px 59px;
+    border-radius: 5px;
+  }
+
+  .carousel-item {
+    height: 90vh;
+  }
+}
 
 /*............. About Section .......................*/
+
 #about {
   padding: 80px 0;
   background: #f9f9f9;
@@ -196,21 +472,20 @@ body {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 20px;
-  position: relative;
-  color: #222;
   text-align: center;
+  color: #222;
 }
 
 #about .section-title p {
   color: #444;
   font-size: 16px;
-  max-width: 1253px;
+  max-width: 1200px;
   margin: 0 auto 40px auto;
   text-align: justify;
   line-height: 1.7;
+  padding: 0 15px;
 }
 
-/* Image Column */
 #about img {
   width: 100%;
   height: auto;
@@ -218,7 +493,6 @@ body {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* Text Column */
 #about .content p {
   font-size: 15px;
   color: #555;
@@ -227,53 +501,75 @@ body {
   text-align: justify;
 }
 
-/* Optional: Animate fade-in smoother */
-[data-aos] {
-  transition: all 0.8s ease;
+/* =========== Media Queries =========== */
+
+/* 📱 Phone (0 - 767px) */
+@media screen and (max-width: 767px) {
+  #about {
+    padding: 60px 0;
+  }
+
+  #about .section-title {
+    margin-top: 40px; /* Adjust as needed */
+  }
+
+  #about .section-title h2 {
+    font-size: 26px;
+  }
+
+  #about .section-title p {
+    font-size: 14px;
+    margin-top: 21px;
+  }
+
+  #about .content p {
+    font-size: 14px;
+  }
 }
 
-@media (max-width: 991px) {
+/* 💻 Tablet (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #about .section-title {
+    margin-top: -100px; /* Adjust based on actual need */
+  }
+
   #about .section-title h2 {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   #about .section-title p {
     font-size: 15px;
-    padding: 0 15px;
   }
 }
 
-/* carousel section */
-.carousel-item {
-  height: 90vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+/* 🖥️ Small Desktop (1025px - 1200px) */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  #about .section-title {
+    margin-top: -130px; /* Close to your original -163px */
+  }
+
+  #about .section-title h2 {
+    font-size: 31px;
+  }
 }
 
-.carousel-caption {
-  position: absolute;
-  bottom: 20%;
-  left: 10%;
-  right: 10%;
-  color: #fff;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+/* 🖥️ Large Desktop (1201px and above) */
+@media screen and (min-width: 1201px) {
+  #about .section-title {
+    /* margin-top: 29px; */
+    margin-top:  -65px;
+  }
 }
 
-.carousel-caption h2 {
-  font-size: 3rem;
-  font-weight: bold;
-}
 
-.carousel-caption p {
-  font-size: 1.25rem;
-}
 
 /* ....................... Services Section ........................*/
 
-.unique-card ul {
-  max-width: 100%;
+
+/* TEST */
+/* ========== Featured Services ========== */
+.featured-services {
+  background-color: #f5faff;
 }
 
 .unique-card {
@@ -298,7 +594,6 @@ body {
 
 .unique-card .icon-box i {
   font-size: 40px;
-  color: #3a8dff;
   background: linear-gradient(135deg, #3a8dff, #5efce8);
   padding: 20px;
   border-radius: 50%;
@@ -336,6 +631,49 @@ body {
   font-weight: bold;
 }
 
+/* ========== Media Queries ========== */
+
+/* Phones (0 - 767px) */
+@media screen and (max-width: 767px) {
+  .unique-card {
+    padding: 20px;
+  }
+
+  .unique-card .icon-box i {
+    font-size: 32px;
+    padding: 15px;
+  }
+
+  .unique-card .icon-box h4 {
+    font-size: 20px;
+  }
+
+  .unique-card ul li {
+    font-size: 14px;
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .unique-card {
+    padding: 25px;
+  }
+
+  .unique-card ul li {
+    font-size: 14.5px;
+  }
+}
+
+/* Small Desktops (1025px - 1200px) */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .unique-card .icon-box h4 {
+    font-size: 21px;
+  }
+
+  .unique-card ul li {
+    font-size: 15px;
+  }
+}
 
 /*............... SUPPORT SERVICES Section ............................*/
 
@@ -354,23 +692,20 @@ body {
   position: relative;
 }
 
+/* Ordered Lists */
 #cta ol {
   padding-left: 20px;
   margin-bottom: 0;
   list-style-position: inside;
-  counter-reset: custom-counter;
 }
 
 #cta ol li {
-  position: relative;
-  padding-left: 10px;
+  padding: 10px 15px;
   margin-bottom: 12px;
   font-size: 16px;
   color: #333;
   font-weight: 500;
-  line-height: 1.5;
   background: rgba(255, 255, 255, 0.6);
-  padding: 10px 15px;
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
   transition: background 0.3s ease, transform 0.2s ease;
@@ -381,6 +716,7 @@ body {
   transform: translateX(5px);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   #cta .row {
     flex-direction: column;
@@ -393,14 +729,23 @@ body {
   #cta ol li {
     font-size: 15px;
   }
+
+  #cta .section-title h2 {
+    font-size: 28px;
+  }
+
+  #cta {
+    padding: 1px 0;
+  }
 }
+
 
 
 /*................. MANAGEMENT Section Styling ..........................*/
 
 .section-bg {
   background: #f7fafd;
-  padding: 60px 0;
+  padding: 5px 0;
 }
 
 #management .section-title h2 {
@@ -436,7 +781,7 @@ body {
   border-radius: 50%;
   width: 180px;
   height: 180px;
-  /* object-fit: cover; */
+
   border: 4px solid #3a8dff;
   transition: transform 0.3s ease;
 }
@@ -468,7 +813,8 @@ body {
 
 .section-title {
   text-align: center;
-  margin-top: 31px;
+  /* margin-top: 31px; */
+  margin-top: 117px
 
 }
 
@@ -508,13 +854,14 @@ body {
 
 
 /* .................initiated ......................*/
+
+
+/* Card Styling */
 .initiated-card {
-  max-width: 100%;
-  background: #f9f9f9;
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   padding: 25px;
-  text-align: left;
   transition: transform 0.3s ease;
 }
 
@@ -522,27 +869,74 @@ body {
   transform: translateY(-5px);
 }
 
+/* Image */
 .initiated-img {
   display: block;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 20px;
   max-width: 300px;
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-.initiated-content p {
-  text-align: justify;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 1.7;
+/* Text Content */
+.initiated-content {
+  margin-top: 10px;
 }
 
 .initiated-content h3 {
-  margin-bottom: 20px;
+  font-size: 24px;
   font-weight: 600;
+  margin-bottom: 20px;
+  color: #222;
 }
 
+.initiated-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  text-align: justify;
+  margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .initiated-img {
+    max-width: 100%;
+  }
+
+  .initiated-content h3 {
+    font-size: 20px;
+  }
+
+  .initiated-content p {
+    font-size: 15px;
+  }
+}
+
+
+/*  Apply to all section headings*/
+.section-title h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #3a8dff; /* or any color you want */
+  border-radius: 2px;
+}
 
 
 
@@ -695,3 +1089,4 @@ body {
   color: #ffffff;
   transform: scale(1.1);
 }
+
