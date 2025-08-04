@@ -112,7 +112,7 @@
       sendOtpBtn.disabled = true;
 
       try {
-        const res = await axios.post('https://sme-finance-backend-1.onrender.com/send-otp', { email });
+        const res = await axios.post('https://sme-finance-backend-1.onrender.com/api/send-otp', { email });
 
         if (res.data.success) {
           alert('✅ OTP sent to your email.');
@@ -136,7 +136,7 @@
       if (!otp) return alert("⚠️ Please enter the OTP.");
 
       try {
-        const res = await axios.post('https://sme-finance-backend-1.onrender.com/check-otp', { email, otp });
+        const res = await axios.post('https://sme-finance-backend-1.onrender.com/api/check-otp', { email, otp });
 
         if (res.data.success) {
           alert('✅ OTP Verified!');
@@ -170,7 +170,7 @@
       };
 
       try {
-        const res = await axios.post('https://sme-finance-backend-1.onrender.com/submit-form', data, {
+        const res = await axios.post('https://sme-finance-backend-1.onrender.com/api/submit-form', data, {
           headers: { 'Content-Type': 'application/json' }
         });
 
