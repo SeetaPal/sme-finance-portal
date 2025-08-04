@@ -1,7 +1,7 @@
 
 /* topbar */
 
-#topbar {
+/* #topbar {
   background: #3fbbc0;
   color: #fff;
   height: 40px;
@@ -36,11 +36,11 @@
   color: #fff;
   align-items: center;
   justify-content: center;
-}
+} */
 
 
+/* 
 
-/* Phones (0px - 767px) */
 @media (max-width: 767px) {
  
 
@@ -75,7 +75,7 @@
   }
 }
 
-/* Tablets (768px - 1024px) */
+
 @media (min-width: 768px) and (max-width: 1024px) {
   #topbar {
     font-size: 14px;
@@ -97,7 +97,7 @@
 
 
 
-/* Small desktops (1025px - 1200px) */
+
 @media (min-width: 1025px) and (max-width: 1200px) {
   #topbar {
     font-size: 14px;
@@ -112,12 +112,12 @@
     justify-content: flex-start;
   }
 }
+ */
 
 
 
-/* demo */
 /* Header Styling */
-#header {
+/* #header {
   background: #fff;
   padding: 6px 0;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -130,9 +130,9 @@
   max-height: 63px;
 }
 
-/* When scrolling (if using scroll effect) */
+
 #header.header-scrolled {
-  top: 0; /* Only if topbar disappears */
+  top: 0; 
 }
 
 .looking-link {
@@ -185,7 +185,7 @@
   display: block;
 }
 
-/* Toggle button */
+
 .mobile-nav-toggle {
   display: none;
   font-size: 28px;
@@ -193,9 +193,9 @@
   color: #555;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 991px) {
-  /* Header container adjustments */
+ 
   #header .container {
     flex-wrap: nowrap;
     flex-direction: row;
@@ -203,7 +203,7 @@
     justify-content: space-between;
   }
 
-  /* Navbar positioning for mobile */
+ 
   .navbar {
     position: absolute;
     top: 100%;
@@ -213,7 +213,7 @@
     z-index: 999;
   }
 
-  /* Navbar list items */
+ 
   .navbar ul {
     flex-direction: column;
     display: none;
@@ -252,7 +252,6 @@
 
   
 
-  /* Toggle button */
   .mobile-nav-toggle {
     position: absolute;
     right: 20px;
@@ -263,7 +262,7 @@
     z-index: 1001;
   }
 
-  /* Hide "Looking for the Finance" text on mobile */
+ 
   .looking-link {
     display: none;
   }
@@ -272,13 +271,13 @@
 
 
 
-/* Mobile Responsive */
+
 @media (max-width: 767px) {
 
   #header {
     top: 56px  !important;
   }
-}
+} */
 
 
 /* Section Styling */

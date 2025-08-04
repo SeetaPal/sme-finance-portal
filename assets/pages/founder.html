@@ -15,76 +15,91 @@
 
 
   <!-- Google Fonts -->
-  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet">
 
 
-  <!-- Icon Libraries -->
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <!-- Boxicons Our Social Networks -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
   <!-- Main CSS -->
   <link href="../css/founder.css" rel="stylesheet">
+
+  <script src="../js//main.js"></script>
+
 </head>
 
 <body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-      <div class="align-items-center d-none d-md-flex">
-        <i class="bi bi-clock"></i> Monday - Saturday, 10AM to 8PM
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap">
+
+      <!-- Desktop only -->
+      <div class="topbar-left d-none d-md-flex align-items-center">
+        <i class="bi bi-clock me-2"></i>
+        <span>Monday - Saturday, 10AM to 8PM</span>
       </div>
 
-      <div class="d-flex align-items-center">
-        <i class="bi bi-phone"></i> Call us now + 91 – 22 – 6951 1111
+      <!-- Right content + Mobile only timing -->
+      <div class="topbar-right d-flex align-items-center flex-column flex-md-row">
+        <div class="topbar-mobile-timing d-md-none mb-1">
+          <i class="bi bi-clock me-2"></i>
+          <span>Monday - Saturday, 10AM to 8PM</span>
+        </div>
+        <div class="topbar-contact d-flex align-items-center">
+          <i class="bi bi-phone me-2"></i>
+          <span>Call us now +91 – 22 – 6951 1111</span>
+        </div>
       </div>
+
     </div>
   </div>
 
+
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap">
 
-      <!-- Logo + Tagline -->
       <div class="d-flex align-items-center">
-        <a href="index.html" class="logo me-3">
-          <img src="../img/SIPC.jpg" alt="SIPC Logo">
+        <a href="../../index.html" class="logo me-3">
+          <img src="../../assets/img/SIPC.jpg" alt="">
         </a>
-        <p class="Looking mb-0">Looking for the Finance</p>
+        <a href="../pages/LookingFinance.html" class="looking-link d-none d-md-block">
+          <p class="Looking mb-0">Looking for the Finance</p>
+        </a>
       </div>
 
-      <!-- Navigation -->
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto" href="../../index.html">Home</a></li>
-
-
           <li class="dropdown">
-            <a href="../../index.html#about"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+            <a href="#about"><span>About</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="../../index.html#featured-services"">Objectives</a></li>
-              <li><a href=" ../../index.html#featured-services">Activities</a></li>
+              <li><a href="../../index.html#featured-services">Objectives</a></li>
+              <li><a href="../../index.html#featured-services">Activities</a></li>
               <li><a href="../../assets/pages/founder.html">Founder</a></li>
-              <li><a class="" href="../../index.html#management">Management</a></li>
+              <li><a href="../../index.html#management">Management</a></li>
             </ul>
           </li>
-
-
-
-
-          <li><a class="nav-link scrollto" href="#../../about_sme.html" target="_blank">About SMEs</a></li>
-          <li><a class="nav-link scrollto" href="../../index.html#cta">Support Services</a></li>
-          <li><a class="nav-link scrollto" href="#" target="_blank">Events</a></li>
-          <li class=""><a href="../../index.html#gallery"><span>Partners</span></a></li>
-          <li><a class="" href="../../index.html#departments">Initiated By</a></li>
-          <li><a class="" href="../Contact Form/contact.html">Contact</a></li>
+          <li><a href="../pages/about_sme.html" target="">About SMEs</a></li>
+          <li><a href="../../index.html#cta">Support Services</a></li>
+          <li><a href="" target="_blank">Events</a></li>
+          <li><a href="../../index.html#gallery">Partners</a></li>
+          <li><a href="../../index.html#departments">Initiated By</a></li>
+          <li><a href="../Contact Form/contact.html">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
-
     </div>
   </header>
 
@@ -366,43 +381,6 @@
     </div>
 
   </footer>
-
-
-
-
-
-  <!-- Vendor JS Files -->
-  <script src="assets/js/main.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Handle mobile navbar toggle
-      const toggle = document.querySelector('.mobile-nav-toggle');
-      const navbar = document.querySelector('#navbar');
-
-      if (toggle && navbar) {
-        toggle.addEventListener('click', () => {
-          navbar.classList.toggle('mobile-active');
-        });
-      }
-
-      // Handle dropdown arrow toggle
-      const dropdownArrows = document.querySelectorAll('.dropdown-arrow');
-
-      dropdownArrows.forEach(arrow => {
-        arrow.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const dropdown = arrow.closest('.dropdown');
-          dropdown.classList.toggle('open');
-          arrow.classList.toggle('active');
-        });
-      });
-    });
-  </script>
-
-
-
-
 
 </body>
 
