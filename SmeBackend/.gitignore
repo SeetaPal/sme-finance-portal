@@ -1,5 +1,8 @@
-# Ignore .env file
+# Ignore environment variables
 .env
 
-# Node modules
+# Ignore backend directory completely
+SmeBackend/
+
+# Ignore node_modules (in case it's at root or inside backend)
 node_modules/
