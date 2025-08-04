@@ -151,9 +151,23 @@ app.post('/submit-form', async (req, res) => {
         }
       });
       
+      // const mailOptions = {
+      //   from: 'seetapal875@gmail.com',
+      //   to: 'seetaofficial25@gmail.com',
+      //   subject: `New Contact Form Message: ${subject}`,
+      //   html: `
+      //     <h3>New message from Contact Form</h3>
+      //     <p><strong>Name:</strong> ${name}</p>
+      //     <p><strong>Mobile:</strong> ${mobile}</p>
+      //     <p><strong>Email:</strong> ${email}</p>
+      //     <p><strong>Message:</strong> ${message}</p>
+      //   `
+      // };
+
       const mailOptions = {
         from: 'seetapal875@gmail.com',
         to: 'seetaofficial25@gmail.com',
+        replyTo: email, // ✅ Add this line
         subject: `New Contact Form Message: ${subject}`,
         html: `
           <h3>New message from Contact Form</h3>
@@ -163,6 +177,7 @@ app.post('/submit-form', async (req, res) => {
           <p><strong>Message:</strong> ${message}</p>
         `
       };
+      
   
       await transporter.sendMail(mailOptions);
       verifiedEmails.delete(email); // ✅ Cleanup after submission
