@@ -2,7 +2,7 @@
 .env
 
 # Ignore backend directory completely
-SmeBackend/
+# SmeBackend/
 
 # Ignore node_modules (in case it's at root or inside backend)
 node_modules/
