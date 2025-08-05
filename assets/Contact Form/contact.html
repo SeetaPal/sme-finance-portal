@@ -2,10 +2,51 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Form with OTP</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+ 
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looking for the Finance</title>
+  
+  
+    <link href="../../assets/img/fav-icon.png" rel="icon">
+    <link href="../../assets/img/fav-icon.png" rel="apple-touch-icon">
+  
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  
+    <!-- Swiper JS (from CDN) -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+    <!-- Boxicons Our Social Networks -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  
+    <!--global css  -->
+  
+    <link href="../css/global.css" rel="stylesheet">
+  
+  
+    <!-- main.js -->
+    <script src="../js/main.js"></script>
+
+  
+
   <style>
     form {
       max-width: 600px;
@@ -14,6 +55,16 @@
       background: #f9f9f9;
       border-radius: 8px;
     }
+    main {
+  margin-top: 130px; /* Adjust if your header + topbar height changes */
+  padding: 20px;
+}
+
+@media (max-width: 767px) {
+  main {
+    margin-top: 145px; /* For mobile, header is taller */
+  }
+}
 
     input,
     textarea {
@@ -64,11 +115,82 @@
       font-size: 20px;
       cursor: pointer;
     }
+
+    .form-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
   </style>
 </head>
 
-<body>
+<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
 
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap">
+
+      <!-- Desktop only -->
+      <div class="topbar-left d-none d-md-flex align-items-center">
+        <i class="bi bi-clock me-2"></i>
+        <span>Monday - Saturday, 10AM to 8PM</span>
+      </div>
+
+      <!-- Right content + Mobile only timing -->
+      <div class="topbar-right d-flex align-items-center flex-column flex-md-row">
+        <div class="topbar-mobile-timing d-md-none mb-1">
+          <i class="bi bi-clock me-2"></i>
+          <span>Monday - Saturday, 10AM to 8PM</span>
+        </div>
+        <div class="topbar-contact d-flex align-items-center">
+          <i class="bi bi-phone me-2"></i>
+          <span>Call us now +91 – 22 – 6951 1111</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap">
+
+      <div class="d-flex align-items-center">
+        <a href="../../index.html" class="logo me-3">
+          <img src="../../assets/img/SIPC.jpg" alt="">
+        </a>
+        <a href="../pages/LookingFinance.html" class="looking-link d-none d-md-block">
+          <p class="Looking mb-0">Looking for the Finance</p>
+        </a>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="../../index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#about"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="../../index.html#featured-services">Objectives</a></li>
+              <li><a href="../../index.html#featured-services">Activities</a></li>
+              <li><a href="../../assets/pages/founder.html">Founder</a></li>
+              <li><a href="../../index.html#management">Management</a></li>
+            </ul>
+          </li>
+          <li><a href="../pages/about_sme.html" target="">About SMEs</a></li>
+          <li><a href="../../index.html#cta">Support Services</a></li>
+          <li><a href="" target="_blank">Events</a></li>
+          <li><a href="../../index.html#gallery">Partners</a></li>
+          <li><a href="../../index.html#departments">Initiated By</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+      </nav>
+    </div>
+  </header>
+
+  <main>
   <h2 style="text-align:center;">Contact Us (Email OTP Verification)</h2>
 
   <form id="contactForm">
@@ -83,6 +205,7 @@
       <button type="submit">Send Message</button>
     </div>
   </form>
+</main>
 
   <div id="otpModal" class="modal">
     <div class="modal-content">
@@ -92,6 +215,68 @@
       <button id="verifyOtpBtn">Verify OTP</button>
     </div>
   </div>
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+  
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-info">
+                <a href="" class="footer-logo"><img src="../img/SIPC.jpg" alt="" class="footer-logo-img"></a>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 footer-links">
+  
+              <ul>
+                <li><i class="bx bx-chevron-right"></i><a href="../../index.html">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i><a href="../../index.html#about"">About us</a></li>
+                <li><i class=" bx bx-chevron-right"></i><a href="../../index.html#cta"">Support Services</a></li>
+                <li><i class=" bx bx-chevron-right"></i><a href="../../index.html#management">Management</a></li>
+                <li><i class="bx bx-chevron-right"></i><a href="../../index.html#featured-services">Objectives</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 footer-links" style="color: black;">
+  
+              <ul>
+                <li><i class="bx bx-chevron-right"></i><a href="../../index.html#gallery">Partners</a></li>
+                <li><i class="bx bx-chevron-right"></i><a href="../../index.html#featured-services">Activities</a></li>
+                <li><i class="bx bx-chevron-right"></i><a href="../../index.html#">Forthcoming Events</a></li>
+                <li><i class="bx bx-chevron-right"></i><a href="../../index.html#">Past Events</a></li>
+                <li><i class="bx bx-chevron-right"></i><a href="../../index.html#contact">Contact</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-2 col-md-6 footer-newsletter"
+              style="background-color: #f6f6f6; padding: 20px; border-radius: 10px;">
+              <h4>Our Social Networks</h4>
+              <div class="social-links mt-3">
+                <a href="https://x.com/smechamber" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/smechamber" target="_blank" class="facebook"><i
+                    class="bx bxl-facebook"></i></a>
+                <a href="https://www.linkedin.com/company/sme-chamber-of-india" target="_blank" class="linkedin"><i
+                    class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container">
+  
+        <div class="copyright">
+          <p align="center" style="text-align: center; color: grey;">Credits : Images used in this website by <a
+              href="https://www.freepik.com/" target="_blank">freepik.com</a></p>
+          © Copyright <strong><span>SME Finance Facilitation Centre</span></strong>. All Rights Reserved
+        </div>
+  
+      </div>
+    </footer>
+    <!-- end Footer -->
 
   <script>
     const sendOtpBtn = document.getElementById('sendOtpBtn');
