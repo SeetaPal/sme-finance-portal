@@ -352,24 +352,13 @@
     }
 
 
-    /* dropdown open  */
-    /* .navbar .dropdown ul {
-      position: relative !important;
-      top: 0 !important;
-      left: 0;
-      width: 100%;
-      box-shadow: none;
-      background: #f8f9fa; 
-      padding-left: 20px;
-    } */
-
     .navbar .dropdown ul {
       position: relative !important;
       top: 0 !important;
       left: 0;
-      width: 90%;              /* 👈 Reduced width */
-      margin-left: 5%;         /* 👈 Centering it */
-      background-color: #eaeaea; /* 👈 Light gray background */
+      width: 90%;              
+      margin-left: 5%;       
+      background-color: #eaeaea; 
       padding: 10px 15px;
       box-shadow: none;
       border-radius: 6px;
